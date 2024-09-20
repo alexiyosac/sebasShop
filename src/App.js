@@ -10,8 +10,6 @@ function App() {
     const response = await fetch(url);
     const data = await response.json();
     setTodos(data);
-    console.log(data);
-    <div>{data.title}</div>;
   };
 
   useEffect(() => {
@@ -20,11 +18,10 @@ function App() {
 
   return (
     <div>
-      {todos.map((codigo) => {
+      
+      {todos.map((item) => {
         return (
-          <div>
-            <p>{codigo.id}</p>
-          </div>
+               <p>{item.id}</p>
         );
       })}
     </div>
