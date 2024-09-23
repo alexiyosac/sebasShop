@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "../estilos/appApiStyle.css"
 
 const AppApi = () => {
   const url = "https://fakestoreapi.com/products/";
