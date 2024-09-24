@@ -19,7 +19,10 @@ const AppApi = () => {
   return (
     <ul>
         {todos.map((productos, index)=>{
-            return <li key={index}>{productos.title}</li>
+            return <div>
+              <li key={index}>{productos.title}</li>
+              <img src={productos.image} alt={productos.title} width="200" />
+              </div>
         })}
     </ul>
 
