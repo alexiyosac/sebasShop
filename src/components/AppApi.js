@@ -24,6 +24,7 @@ const AppApi = () => {
               <img src={productos.image} alt={productos.title} width="200" />
               </div>
         })}
+       
     </ul>
 
   )
