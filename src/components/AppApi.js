@@ -1,35 +1,40 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "../estilos/appApiStyle.css"
+import "../estilos/appApiStyle.css";
 
 const AppApi = () => {
   const url = "https://fakestoreapi.com/products/";
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-        async function fetchApi() {
-        const response = await fetch(url);
-        const data = await response.json();
-        setTodos(data);
-        }
+    async function fetchApi() {
+      const response = await fetch(url);
+      const data = await response.json();
+      setTodos(data);
+    }
 
-        fetchApi();
+    fetchApi();
   }, []);
 
   return (
-    <ul>
-        {todos.map((productos, index)=>{
-            return <div>
+    <div className="containerP">
+      <ul className="products">
+        {todos.map((productos, index) => {
+          return (
+            <div>
+              <img
+                src={productos.image}
+                alt={productos.title}
+                width="200"
+                height="200"
+              />
               <li key={index}>{productos.title}</li>
-              <img src={productos.image} alt={productos.title} width="200" />
-              </div>
+            </div>
+          );
         })}
-       
-    </ul>
-
-  )
-
-
+      </ul>
+    </div>
+  );
 };
 
 export default AppApi;

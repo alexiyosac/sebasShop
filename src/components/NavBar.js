@@ -16,7 +16,7 @@ const navBar = () => {
         </div>
 
         <div className="navSearch">
-          Búsqueda <input type="text" />
+          Búsqueda <input type="text" className="typeSearch"/>
         </div>
       </div>
     </div>
