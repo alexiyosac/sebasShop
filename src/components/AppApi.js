@@ -21,14 +21,14 @@ const AppApi = () => {
       <ul className="products">
         {todos.map((productos, index) => {
           return (
-            <div>
+            <div className="container-products">
               <img
                 src={productos.image}
                 alt={productos.title}
                 width="200"
                 height="200"
               />
-              <li key={index}>{productos.title}</li>
+              <li className="title-products" key={index}>{productos.title}</li>
             </div>
           );
         })}

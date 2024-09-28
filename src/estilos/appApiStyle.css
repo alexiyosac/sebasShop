@@ -12,13 +12,25 @@ li {
    gap: 4rem;
 }
 
+.container-products{
+  border: 3px solid rgb(46, 44, 44);
+  padding: 2px;
+}
+
 
 img{
     object-fit:contain;
 }
 
 .containerP{
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
      max-width: 60vw;
      margin: 0 auto;
  }
+
+ .title-products{
+  font-family: Roboto, sans-serif;
+  font-size: 0.8rem;
+  text-align: center;
+ }
+
