@@ -22,13 +22,24 @@ const AppApi = () => {
         {todos.map((productos, index) => {
           return (
             <div className="container-products">
-              <img
-                src={productos.image}
-                alt={productos.title}
-                width="200"
-                height="200"
-              />
-              <li className="title-products" key={index}>{productos.title}</li>
+              <div className="container-img">
+                <img
+                  className="img-products"
+                  src={productos.image}
+                  alt={productos.title}
+                  width="200"
+                  height="200"
+                />
+              </div>
+
+              <li className="title-products" key={index}>
+                {productos.title}
+              </li>
+
+              <div className="price-products">
+                <p>${productos.price}</p>
+              </div>
+
             </div>
           );
         })}
