@@ -3,6 +3,7 @@ import "./App.css";
 import AppApi from "./components/AppApi";
 import NavBar from "./components/NavBar";
 import Header from "./components/Header";
+import Delivery from "./components/Deliverypag";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <NavBar />
       <Header />
       <AppApi />
+      <Delivery />
     </div>
   );
 }
