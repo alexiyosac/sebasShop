@@ -56,9 +56,14 @@ img{
  }
 
  .price-products{
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   font-weight: bold;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;  
+}
+
+.iconCard{
+  color:#bd18af;
+  cursor: pointer;
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import "../estilos/navBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const navBar = () => {
   return (
@@ -10,13 +12,20 @@ const navBar = () => {
           <strong>SHOP</strong>
         </div>
         <div className="navMenu">
-          <a href="/home" className="navMenu-op">Home</a>
-          <a href="/shop" className="navMenu-op">Shop</a>
-          <a href="/about" className="navMenu-op">About</a>
+          <a href="/home" className="navMenu-op">
+            Home
+          </a>
+          <a href="/shop" className="navMenu-op">
+            Shop
+          </a>
+          <a href="/about" className="navMenu-op">
+            About
+          </a>
         </div>
 
         <div className="navSearch">
-          Búsqueda <input type="text" className="typeSearch"/>
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <input type="text" placeholder="Búsqueda" className="typeSearch" />
         </div>
       </div>
     </div>

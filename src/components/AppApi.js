@@ -1,6 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../estilos/appApiStyle.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+
+
 
 const AppApi = () => {
   const url = "https://fakestoreapi.com/products/";
@@ -11,6 +15,7 @@ const AppApi = () => {
       const response = await fetch(url);
       const data = await response.json();
       setTodos(data);
+      
     }
 
     fetchApi();
@@ -21,8 +26,8 @@ const AppApi = () => {
       <ul className="products">
         {todos.map((productos, index) => {
           return (
-            <div className="container-products">
-              <div className="container-img">
+            <div className="container-products" key={index} >
+              <div className="container-img" >
                 <img
                   className="img-products"
                   src={productos.image}
@@ -32,12 +37,14 @@ const AppApi = () => {
                 />
               </div>
 
-              <li className="title-products" key={index}>
+              <li className="title-products" >
                 {productos.title}
+                
               </li>
 
               <div className="price-products">
                 <p>${productos.price}</p>
+                <FontAwesomeIcon icon={faCartPlus} className="iconCard" />
               </div>
 
             </div>
