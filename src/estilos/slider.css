@@ -1,0 +1,12 @@
+.contenedor-slider{
+    outline: 2px solid blue;
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+h3{
+    height: 200px;
+    width: 200px;
+    border: 1px solid red;
+}
