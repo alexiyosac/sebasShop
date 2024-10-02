@@ -1,0 +1,26 @@
+[
+    {
+    "id": 1,
+    "name": "Kolosh Zapato Deportivo",
+    "price": 60.00,
+    "estilo": "deportivo",
+    "url": "images/zapatos1.jpg"
+    },
+
+    {
+        "id": 2,
+        "name": "Ferracini Zapato sneakers",
+        "price": 86.99,
+        "estilo": "deportivo",
+        "url": "images/zapatos2.jpg"
+    },
+
+    {
+        "id": 3,
+        "name": "Ferracini Zapato Deportivo",
+        "price": 87.99,
+        "estilo": "deportivo",
+        "url": "images/zapatos3.jpg"
+    }
+    
+]

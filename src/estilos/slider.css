@@ -1,12 +1,26 @@
 .contenedor-slider{
-    outline: 2px solid blue;
+    /* outline: 2px solid blue; */
     width: 60%;
+    height: 400px;
     margin: 0 auto;
-
 }
 
-h3{
-    height: 200px;
-    width: 200px;
-    border: 1px solid red;
+.imgZapatos{
+    height: 400px;
+    width: 400px;
+    background-color: #ffffff;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
+.slick-next:before, .slick-prev:before {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: rgb(25, 195, 201);
+}
+

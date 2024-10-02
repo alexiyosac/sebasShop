@@ -3,35 +3,26 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../estilos/slider.css";
+import data from "../zapatos.json"
+
+
 
 const SliderProductos = () => {
   var settings = {
-    dots: true,
+    className: "center",
+    centerMode: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500
   };
   return (
-    <Slider {...settings} className="contenedor-slider">
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
+    <Slider {...settings} className="contenedor-slider slider-container">
+          {data.map((zapatos, index)=>{
+      return(
+        <img src={zapatos.url} alt={zapatos.name} className="imgZapatos" />
+      )
+  })}
     </Slider>
   );
 };
