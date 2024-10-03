@@ -7,7 +7,7 @@ const Delivery = () => {
         <div className="container-principal">
             <div className="container-delivery">
                 <div className="text-delivery">
-                    <p>Por compra mayores a <strong>$50</strong></p>
+                    <p>POR COMPRAS MAYORES A <strong>$50</strong></p>
                     <h1>ENTREGA GRATIS A NIVEL NACIONAL</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repellat sint voluptatum similique laborum corporis in, ut error quos reprehenderit, dolorum eveniet perferendis, ipsum rerum. A dolorem quis veritatis quisquam.</p>  
                 

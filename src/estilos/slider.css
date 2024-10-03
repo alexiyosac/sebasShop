@@ -1,18 +1,30 @@
 .contenedor-slider{
-    /* outline: 2px solid blue; */
+    padding: 0 20px;
     width: 60%;
-    height: 400px;
-    margin: 0 auto;
+    height: 500px;
+    margin: 40px auto;
+     background-color: rgb(238, 238, 238);
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 
+
+
+
+/* .contenedor-img-zapatos{
+     outline: 2px solid rgb(18, 204, 126);
+
+} */
+
+
 .imgZapatos{
-    height: 400px;
-    width: 400px;
+    /* outline: 2px solid rgb(175, 173, 173); */
+     height: 100%;
+    width: 95%;
     background-color: #ffffff;
     font-size: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
 }
 
 
@@ -24,3 +36,8 @@
     color: rgb(25, 195, 201);
 }
 
+.contenedor-texto{
+    /* outline: 1px solid orange; */
+    text-align: center;
+    font-size: 1.2rem;
+}

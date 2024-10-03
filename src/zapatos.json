@@ -21,6 +21,34 @@
         "price": 87.99,
         "estilo": "deportivo",
         "url": "images/zapatos3.jpg"
+    },
+
+    {
+        "id": 4,
+        "name": "Ferracini Zapato Casual",
+        "price": 86.99,
+        "estilo": "casual",
+        "url": "images/zapatos4.jpg"
+    },
+
+    {
+        "id": 5,
+        "name": "Ferracini Sampa Green Zapato sneakers",
+        "price": 62.99,
+        "estilo": "sneakers",
+        "url": "images/zapatos5.jpg"
+    },
+
+    {
+        "id": 6,
+        "name": "Ferracini Zapato Sneakers",
+        "price": 60.00,
+        "estilo": "sneakers",
+        "url": "images/zapatos6.jpg"
     }
+    
+    
+    
+
     
 ]
