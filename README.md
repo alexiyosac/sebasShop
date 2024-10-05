@@ -12,6 +12,7 @@ npm install slick-carousel --save
 
 
 
+
 si manda este erro
 Module build failed (from ./node_modules/babel-loader/lib/index.js):
     instalar
