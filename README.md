@@ -2,6 +2,15 @@
 Hola mundo
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+#package que se deben instalar
+instalar para los iconos npm i --save @fortawesome/react-fontawesome@latest
+para el slider      npm install react-slick --save
+                    npm install slick-carousel --save
+
+si manda este error Module build failed (from ./node_modules/babel-loader/lib/index.js): instalar npm install --save-dev @babel/plugin-proposal-private-property-in-object
+
+            npm install --save-dev @babel/preset-react
+
 ## Available Scripts
 
 In the project directory, you can run:

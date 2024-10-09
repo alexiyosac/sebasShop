@@ -18,9 +18,9 @@ const SliderProductos = () => {
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1700,
+        breakpoint: 1600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -58,7 +58,7 @@ const SliderProductos = () => {
     <Slider {...settings} className="contenedor-slider slider-container">
           {data.map((zapatos, index)=>{
       return(
-        <div className="contenedor-zapatos">
+        <div className="contenedor-zapatos" key={index}>
         
             <div className="contenedor-img-zapatos">
                  <img src={zapatos.url} alt={zapatos.name} className="imgZapatos" />

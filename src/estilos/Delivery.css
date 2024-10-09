@@ -52,7 +52,8 @@
 
 .text-delivery h1{
   font-family: Raleway, sans-serif;
-  font-size: 4rem;
+  font-size: 3rem;
+  font-weight: bold;
   line-height:95%;
   color: #A72E4A;
   margin-bottom: 15px;

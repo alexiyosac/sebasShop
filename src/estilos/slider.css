@@ -14,8 +14,9 @@
 
 /* .contenedor-img-zapatos{
      outline: 2px solid rgb(18, 204, 126);
+     width: 95%;
 
-} */
+}  */
 
 
 .imgZapatos{
@@ -24,7 +25,12 @@
     width: 95%;
     background-color: #ffffff;
     font-size: 4rem;
-   
+}
+
+.imgZapatos:hover{
+    transform: scale(1.15);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 

@@ -29,8 +29,12 @@
 }
 
 .titulo-header{
-    font-size: 3rem;
-    color:rgb(44, 43, 41)
+    font-size: 4rem;
+    color:rgb(44, 43, 41);
+    line-height: 3.5rem;
+    width: 70%;
+    margin: 10px 0;
+    
 }
 
 .promo-header{
