@@ -18,9 +18,9 @@ const SliderProductos = () => {
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1600,
+        breakpoint: 1500,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -62,6 +62,11 @@ const SliderProductos = () => {
         
             <div className="contenedor-img-zapatos">
                  <img src={zapatos.url} alt={zapatos.name} className="imgZapatos" />
+                 
+                <div className="cajaColor">
+                  <button className="buttonAgregar">AGREGAR AL CARRITO</button>
+                </div>
+
               </div>
 
             <div className="contenedor-texto">
