@@ -7,6 +7,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 
 const AppApi = () => {
+  
   const url = "https://fakestoreapi.com/products/";
   const [todos, setTodos] = useState([]);
 

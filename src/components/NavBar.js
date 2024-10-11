@@ -1,10 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import "../estilos/navBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const navBar = () => {
-  return (
+
+const NavBar = () => {
+  const [cantCarrito, setCanCarrito] = useState(0);
+
+
+    return (
     <div className="containerPrincipal">
       <div className="container">
         <div className="navLogo">
@@ -23,13 +28,18 @@ const navBar = () => {
           </a>
         </div>
 
+        <div className="NavCarrito">
+          <p>{cantCarrito}</p>
+        </div>
+
         <div className="navSearch">
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
           <input type="text" placeholder="Búsqueda" className="typeSearch" />
         </div>
       </div>
     </div>
+
   );
 };
 
-export default navBar;
+export default NavBar;

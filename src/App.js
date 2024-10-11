@@ -5,17 +5,21 @@ import NavBar from "./components/NavBar";
 import Header from "./components/Header";
 import Delivery from "./components/Deliverypag";
 import SliderProductos from "./components/Slider";
+import { UserProvider } from "./context/UserProvider";
 
 
 function App() {
+
+ 
+
   return (
-    <div>
+    <UserProvider>
       <NavBar />
       <Header />
       <SliderProductos />
       <AppApi />
       <Delivery />
-    </div>
+    </UserProvider>
   );
 }
 
