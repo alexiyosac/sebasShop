@@ -7,6 +7,7 @@
     max-width: 60vw;
     margin: 0 auto;
 
+
 }
 
 .container{
@@ -63,4 +64,31 @@
     background-color: transparent;
     padding-left: 5px;
 
+}
+.NavCarrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    cursor: pointer;
+}
+
+.circuloCar{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavCarrito p{
+
+    color: white;
+    font-size: .8rem;
+    font-weight: bold;
+    text-align: center;
+    
+    
 }

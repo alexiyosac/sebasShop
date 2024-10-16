@@ -6,8 +6,6 @@ import "../estilos/slider.css";
 import data from "../zapatos.json";
 import { UserContext } from "../context/UserProvider";
 
-
-
 const SliderProductos = () => {
   var settings = {
     dots: true,
@@ -54,18 +52,14 @@ const SliderProductos = () => {
     ],
   };
 
-const [contador, setContador] = useContext(UserContext);
-const [count, setCount] = useState(0);
-
-  const handlerClick = () =>{
-    setCount(count + 1);
-    console.log(`El valor de count en slider es ${count}`);
-    setContador(count);
-   
- };
-
  
-  
+
+ const { contador, objeto, setContador, setObjeto } = useContext(UserContext );
+
+  const incrementarContador = () => {
+    setContador(contador + 1);
+    console.log("contador es, ", contador)
+  };
 
 
 
@@ -82,8 +76,8 @@ const [count, setCount] = useState(0);
               />
 
               <div className="cajaColor">
-                <button onClick={handlerClick} className="buttonAgregar">
-                  AGREGAR AL CARRITO {count}
+                <button onClick={incrementarContador} className="buttonAgregar">
+                  AGREGAR AL CARRITO
                 </button>
               </div>
             </div>

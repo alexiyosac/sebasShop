@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext } from "react";
 import "../estilos/navBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { UserContext } from "../context/UserProvider";
 
 
-const NavBar = () => {
-  const [cantCarrito, setCanCarrito] = useState(0);
+
+const NavBar = ({openModal}) => {
 
 
     return (
@@ -28,8 +28,9 @@ const NavBar = () => {
           </a>
         </div>
 
-        <div className="NavCarrito">
-          <p>{cantCarrito}</p>
+        <div className="NavCarrito" onClick={openModal}>
+          <FontAwesomeIcon icon={faCartShopping} />
+          <div className="circuloCar"><p>0</p></div>        
         </div>
 
         <div className="navSearch">
