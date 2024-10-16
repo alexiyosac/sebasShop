@@ -9,6 +9,8 @@ import { UserContext } from "../context/UserProvider";
 const NavBar = ({openModal}) => {
 
 
+  const { contador } = useContext(UserContext );
+
     return (
     <div className="containerPrincipal">
       <div className="container">
@@ -30,7 +32,7 @@ const NavBar = ({openModal}) => {
 
         <div className="NavCarrito" onClick={openModal}>
           <FontAwesomeIcon icon={faCartShopping} />
-          <div className="circuloCar"><p>0</p></div>        
+          <div className="circuloCar"><p>{contador}</p></div>        
         </div>
 
         <div className="navSearch">

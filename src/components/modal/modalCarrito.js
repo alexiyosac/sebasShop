@@ -1,11 +1,14 @@
+import { React, useContext, useState } from "react";
 import "../../estilos/modalCarrito.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { UserContext } from "../../context/UserProvider";
+
 
 
 const ModalCarrito = ({ open, openModal }) => {
+  const { array, setArray } = useContext(UserContext);
   if (!open) return null;
-  
 
   return (
     <div className="modalCarrito">
@@ -15,19 +18,26 @@ const ModalCarrito = ({ open, openModal }) => {
             <h3 className="tituloCarrito">PRODUCTOS</h3>
             <FontAwesomeIcon icon={faXmark} className="closeMo" onClick={openModal}/>
           </div>
-          <hr></hr>
-          <div className="productosCarrito">
-            <h3 className="cantProducto">1</h3>
-            <img
-              src="https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
-              width="80"
-              alt="imagen"
-            />
-            <h3 className="priceCarrito">$20.00</h3>
-            <FontAwesomeIcon icon={faXmark} className="deleteProduct" />
-          </div>
+       
+          <div>
+            {array.map((array) => (
+          
+                <div className="productosCarrito" key={array.id}>
+                  
+                        <h3 className="cantProducto">{array.cantidad}</h3>
+                        <img
+                          src={array.url}
+                          width="80"
+                          alt="imagen"
+                        />
+                        <h3 className="priceCarrito">{array.valor}</h3>
+                        <FontAwesomeIcon icon={faXmark} className="deleteProduct" />           
+                </div>
 
-          <hr></hr>
+              ))}
+              
+              </div>
+          
 
           <div className="totalCarrito">
             <h2>Total $20</h2>

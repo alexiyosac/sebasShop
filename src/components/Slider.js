@@ -1,4 +1,4 @@
-import {React, useContext, useState } from "react";
+import { React, useContext, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -52,16 +52,29 @@ const SliderProductos = () => {
     ],
   };
 
- 
+  
+  const { contador, array, setContador, setArray } = useContext(UserContext);
 
- const { contador, objeto, setContador, setObjeto } = useContext(UserContext );
-
-  const incrementarContador = () => {
+  const incrementarContador = (id, precio, urlImg) => {
     setContador(contador + 1);
-    console.log("contador es, ", contador)
+    const productsArray = {
+      id : id,
+      cantidad: contador,
+      valor: precio,
+      url: urlImg,
+    }
+    //setArray([...array, { id: id, cantidad: contador, valor: precio, url: urlImg }]);
+    setArray([...array, productsArray]);
+
+    console.log("contador es, ", contador);
+    console.log("El ID es, ", id + " la cantidad es: ", contador + " El precio es, ", precio + "  La url es, ", urlImg);
   };
 
-
+const addArray = ()=>{
+  array.map((array)=>{
+    console.log("cantidad : ", array.cantidad + " valor : ", array.valor )
+  })
+}
 
   return (
     <Slider {...settings} className="contenedor-slider slider-container">
@@ -76,9 +89,10 @@ const SliderProductos = () => {
               />
 
               <div className="cajaColor">
-                <button onClick={incrementarContador} className="buttonAgregar">
+                <button onClick={() => incrementarContador(zapatos.id, zapatos.price, zapatos.url)} className="buttonAgregar">
                   AGREGAR AL CARRITO
                 </button>
+                <button className="buttonAgregar" onClick={addArray}>ARRAY</button>
               </div>
             </div>
 
