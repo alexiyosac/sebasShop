@@ -52,29 +52,52 @@ const SliderProductos = () => {
     ],
   };
 
-  
   const { contador, array, setContador, setArray } = useContext(UserContext);
 
   const incrementarContador = (id, precio, urlImg) => {
     setContador(contador + 1);
-    const productsArray = {
-      id : id,
-      cantidad: contador,
-      valor: precio,
-      url: urlImg,
-    }
-    //setArray([...array, { id: id, cantidad: contador, valor: precio, url: urlImg }]);
-    setArray([...array, productsArray]);
+    if (array.length === 0) {
+      const productsArray = {
+        id: id,
+        cantidad: 1,
+        valor: precio,
+        url: urlImg,
+      };
+      setArray([...array, productsArray]);
+      console.log("contador es, ", contador);
+      console.log(
+        "El ID es, ",
+        id + " la cantidad es: ",
+        contador + " El precio es, ",
+        precio + "  La url es, ",
+        urlImg
+      );
+    } else {
+      const productsArray = array.map((arrayID) => {
+        if (arrayID.id === id) {
+          return {
+            ...arrayID,
+            cantidad: arrayID.cantidad + 1,
+          };
+        }
+        return arrayID;
+      });
 
-    console.log("contador es, ", contador);
-    console.log("El ID es, ", id + " la cantidad es: ", contador + " El precio es, ", precio + "  La url es, ", urlImg);
+      setArray(productsArray);
+    }
   };
 
-const addArray = ()=>{
-  array.map((array)=>{
-    console.log("cantidad : ", array.cantidad + " valor : ", array.valor )
-  })
-}
+  const addArray = () => {
+    array.map((array) => {
+      console.log("cantidad : ", array.cantidad + " valor : ", array.valor);
+    });
+  };
+
+  const verificar = () => {
+    array.length === 0
+      ? console.log("array vacio")
+      : console.log("array existe");
+  };
 
   return (
     <Slider {...settings} className="contenedor-slider slider-container">
@@ -89,10 +112,17 @@ const addArray = ()=>{
               />
 
               <div className="cajaColor">
-                <button onClick={() => incrementarContador(zapatos.id, zapatos.price, zapatos.url)} className="buttonAgregar">
+                <button
+                  onClick={() =>
+                    incrementarContador(zapatos.id, zapatos.price, zapatos.url)
+                  }
+                  className="buttonAgregar"
+                >
                   AGREGAR AL CARRITO
                 </button>
-                <button className="buttonAgregar" onClick={addArray}>ARRAY</button>
+                <button onClick={verificar} className="buttonAgregar">
+                  VERIFICAR VACIO
+                </button>
               </div>
             </div>
 
