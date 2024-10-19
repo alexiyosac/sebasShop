@@ -53,45 +53,30 @@ const SliderProductos = () => {
   };
 
   const { contador, array, setContador, setArray } = useContext(UserContext);
-
   const incrementarContador = (id, precio, urlImg) => {
     setContador(contador + 1);
-    if (array.length === 0) {
-      const productsArray = {
-        id: id,
-        cantidad: 1,
-        valor: precio,
-        url: urlImg,
-      };
-      setArray([...array, productsArray]);
-      console.log("contador es, ", contador);
-      console.log(
-        "El ID es, ",
-        id + " la cantidad es: ",
-        contador + " El precio es, ",
-        precio + "  La url es, ",
-        urlImg
-      );
-    } else {
-      const productsArray = array.map((arrayID) => {
-        if (arrayID.id === id) {
-          return {
-            ...arrayID,
-            cantidad: arrayID.cantidad + 1,
-          };
-        }
-        return arrayID;
-      });
-
-      setArray(productsArray);
-    }
-  };
-
-  const addArray = () => {
-    array.map((array) => {
-      console.log("cantidad : ", array.cantidad + " valor : ", array.valor);
+    setArray((prevItems) => {
+      const itemExistente = prevItems.find((item) => item.id === id);
+      if (itemExistente) {
+        // Si el item ya existe, actualizar su cantidad
+        return prevItems.map((item) =>
+          // Buscar si el item ya existe en el array
+          item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+        );
+      } else {
+        // Si el array está vacío o el item no existe, agregar el nuevo item
+        const productsArray = {
+          id: id,
+          cantidad: 1,
+          valor: precio,
+          url: urlImg,
+        };
+        return [...prevItems, productsArray];
+      }
     });
   };
+
+
 
   const verificar = () => {
     array.length === 0
