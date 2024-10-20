@@ -1,12 +1,21 @@
 import { React, useContext } from "react";
 import "../../estilos/modalCarrito.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { UserContext } from "../../context/UserProvider";
+import { faXmark, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+// import { UserContext } from "../../context/UserProvider";
+import { UserContext } from "../../context/UserAgregar";
+
 
 const ModalCarrito = ({ open, openModal }) => {
-  const { array, setArray } = useContext(UserContext);
+  const { contador, setContador, array, setArray } = useContext(UserContext);
   if (!open) return null;
+
+const handlerRemover = (id, cantidad) =>{
+  const newArray = array.filter((array) => array.id !== id)
+  setArray(newArray);
+  setContador(contador - cantidad)
+}
+
 
   return (
     <div className="modalCarrito">
@@ -24,14 +33,15 @@ const ModalCarrito = ({ open, openModal }) => {
             {
               // Condicional if en el centro del bloque return
               array.length === 0 ? (
-                <div>No hay productos en el carrito</div>
+                <div className="carVacio">No hay productos en el carrito</div>
               ) : (
                 array.map((array) => (
                   <div className="productosCarrito" key={array.id}>
                     <h3 className="cantProducto">{array.cantidad}</h3>
                     <img src={array.url} width="80" alt="imagen" />
                     <h3 className="priceCarrito">{array.valor}</h3>
-                    <FontAwesomeIcon icon={faXmark} className="deleteProduct" />
+                    <FontAwesomeIcon icon={faTrashCan} className="deleteProduct"
+                    onClick={()=> handlerRemover(array.id, array.cantidad)} />
                   </div>
                 ))
               )

@@ -107,11 +107,14 @@ cursor: pointer;
     cursor: pointer;
 }
 
-.deleteProduct:active{
+.deleteProduct:hover{
     cursor: pointer;
     color: brown;
 }
 
+.carVacio{
+    text-align: center;
+}
 /* .modalContainerClose{
 
     animation-name: transicionClose;

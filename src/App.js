@@ -6,21 +6,22 @@ import Header from "./components/Header";
 import Delivery from "./components/Deliverypag";
 import ModalCarrito from "./components/modal/modalCarrito";
 import SliderProductos from "./components/Slider";
-import {UserProvider} from "./context/UserProvider";
+// import {UserProvider} from "./context/UserProvider";
+import UserContext from "./context/UserAgregar"
 
 
 function App() {
   const [openModalCar, setOpenModalCar] = useState(false);
 
   return (
-    <UserProvider>
+    <UserContext> 
       <ModalCarrito open={openModalCar} openModal={()=> setOpenModalCar(!openModalCar)}/>
       <NavBar openModal={()=> setOpenModalCar(true)}/>
       <Header />
       <SliderProductos />
       <AppApi />
       <Delivery />
-    </UserProvider>
+    </UserContext>
   );
 }
 

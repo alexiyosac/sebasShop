@@ -1,10 +1,11 @@
-import { React, useContext, useState } from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../estilos/slider.css";
 import data from "../zapatos.json";
-import { UserContext } from "../context/UserProvider";
+// import AgregarItems from "./AgregarItems"
+import { UserContext }  from "../context/UserAgregar";
 
 const SliderProductos = () => {
   var settings = {
@@ -52,40 +53,18 @@ const SliderProductos = () => {
     ],
   };
 
-  const { contador, array, setContador, setArray } = useContext(UserContext);
-  const incrementarContador = (id, precio, urlImg) => {
-    setContador(contador + 1);
-    setArray((prevItems) => {
-      const itemExistente = prevItems.find((item) => item.id === id);
-      if (itemExistente) {
-        // Si el item ya existe, actualizar su cantidad
-        return prevItems.map((item) =>
-          // Buscar si el item ya existe en el array
-          item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
-        );
-      } else {
-        // Si el array está vacío o el item no existe, agregar el nuevo item
-        const productsArray = {
-          id: id,
-          cantidad: 1,
-          valor: precio,
-          url: urlImg,
-        };
-        return [...prevItems, productsArray];
-      }
-    });
+
+
+  const { agregarItem } = useContext(UserContext);
+
+  const manejarClick = (id, precio, urlImg) => {
+    agregarItem(id, precio, urlImg);
   };
 
-
-
-  const verificar = () => {
-    array.length === 0
-      ? console.log("array vacio")
-      : console.log("array existe");
-  };
 
   return (
     <Slider {...settings} className="contenedor-slider slider-container">
+      {/* recorrer el array de zapatos */}
       {data.map((zapatos, index) => {
         return (
           <div className="contenedor-zapatos" key={index}>
@@ -97,17 +76,10 @@ const SliderProductos = () => {
               />
 
               <div className="cajaColor">
-                <button
-                  onClick={() =>
-                    incrementarContador(zapatos.id, zapatos.price, zapatos.url)
-                  }
-                  className="buttonAgregar"
-                >
-                  AGREGAR AL CARRITO
+                <button className="buttonAgregar" onClick={() => manejarClick(zapatos.id, zapatos.price, zapatos.url )}>
+                 AGREGAR AL CARRITO
                 </button>
-                <button onClick={verificar} className="buttonAgregar">
-                  VERIFICAR VACIO
-                </button>
+                
               </div>
             </div>
 

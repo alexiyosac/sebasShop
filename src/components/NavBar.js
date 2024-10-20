@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import "../estilos/navBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { UserContext } from "../context/UserProvider";
+// import { UserContext } from "../context/UserProvider";
 
+import { UserContext }  from "../context/UserAgregar";
 
 
 const NavBar = ({openModal}) => {
 
 
-  const { contador } = useContext(UserContext );
+  const { contador } = useContext(UserContext);
 
     return (
     <div className="containerPrincipal">

@@ -74,19 +74,22 @@
 }
 
 .circuloCar{
+    position: relative;
+    bottom: -5px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: black;
+    width: 23px;
+    height: 23px;
+    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .NavCarrito p{
 
     color: white;
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
     
