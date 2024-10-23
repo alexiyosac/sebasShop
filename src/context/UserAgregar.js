@@ -6,6 +6,7 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [contador, setContador] = useState(0);
   const [array, setArray] = useState([]);
+  const [isOpen, setIsOpen] =useState(false);
 
   const agregarItem = (id, precio, urlImg) => {
     // Incrementar el contador
@@ -34,7 +35,7 @@ const UserProvider = ({ children }) => {
 
   return (
  
-    <UserContext.Provider value={{ contador, setContador, array, setArray, agregarItem }}>
+    <UserContext.Provider value={{ contador, setContador, array, setArray, agregarItem, isOpen, setIsOpen }}>
       {children}
     </UserContext.Provider>
   );

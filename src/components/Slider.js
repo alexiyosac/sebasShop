@@ -54,7 +54,7 @@ const SliderProductos = () => {
 
 
 
-  const { agregarItem } = useContext(UserContext);
+  const { agregarItem} = useContext(UserContext);
 
   const manejarClick = (id, precio, urlImg) => {
     agregarItem(id, precio, urlImg);

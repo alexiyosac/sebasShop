@@ -1,11 +1,17 @@
-
+/* *{
+    outline: 1px solid red;
+} */
 
 :root{
-    --colorPrimario: #ffc501;
-    --colorSecundario: rgb(86, 85, 85);
+    --colorPrimario: #EDC42C;
+    --colorSecundario: #2D2E32;
+    --colorTercero: #26272B;
+    --colorCuarto: #6B6C70;
+   
 }
 
 .modalContainerP{
+   
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.5);
@@ -19,17 +25,19 @@
 }
 
 .ventanaModal{
-    width:80%;
-    height: 80%;
+    
+    width:900px;
+    height: 600px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.75);
     display: flex;
+ 
 
 }
 
 .ventanaProducto{
-    width:45%;
+    width:55%;
     max-height: 100%;
     background-color: #fff;
     display: flex;
@@ -40,19 +48,20 @@
 .imgProducto{
     width: 80%;
     max-height: 60%;
-    object-fit: cover;
+    object-fit: contain;
 
 }
 
 
 .ventanaDescripcion{
-    width:60%;
+    width:45%;
     height: 100%;
-    background-color: #1b1513;
+    background-color: var(--colorSecundario);
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
 }
 
 .ventanaDescripcion{
@@ -62,12 +71,79 @@
 
 .titulosProducto h1{
     color: var(--colorPrimario);
+    font-size: 2.5rem;
+    line-height:100%;
 }
 
 .subtituloProducto{
-    color: var(--colorSecundario);
+    color: var(--colorCuarto);
+    font-size: 1.5rem;
 }
 
 .tituloPrecioProducto{
     color: var(--colorPrimario);
+    font-size: 3.5rem;
+    
 }
+.descripcionProducto h3{
+    color: var(--colorCuarto);
+}
+
+.descripcionProducto p{
+    font-size: 15px;
+}
+
+.tituloBoton{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+.botonesCantPre{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+
+}
+
+.botonCantidad{
+    display: flex;
+    width: 100px;
+    color: var(--colorCuarto);
+    border: none;
+    border-radius: 30px;
+    padding: 5px;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--colorTercero);
+    font-weight:600;
+    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.50);
+    margin: 5px 0;
+
+}
+
+.botonesAgregarRestar{
+    border-right: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+
+.botonAgregarCart{
+    border-radius: 15px;
+    width: 330px;
+    height: 40px;
+    background-color: var(--colorPrimario);
+    color:var(--colorSecundario);
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.closeModalCart{
+    font-size: 1.3rem;
+    cursor: pointer;
+    position: relative;
+    top: -40px;
+    right: -180px;
+    }

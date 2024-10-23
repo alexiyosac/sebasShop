@@ -24,24 +24,30 @@ const AppApi = () => {
   }, []);
 
 
-const {agregarItem} = useContext(UserContext);
+const {agregarItem, setIsOpen, isOpen } = useContext(UserContext);
 const manejarClick = (id, precio, urlImg) => {
   agregarItem(id, precio, urlImg);
 }
 
+const openModal = () =>{
+  setIsOpen(true);
+}
+
   return (
+    
     <div className="containerP">
       <ul className="products">
         {todos.map((productos, index) => {
           return (
             <div className="container-products" key={index} >
               <div className="container-img" >
-                <img
+                <img 
                   className="img-products"
                   src={productos.image}
                   alt={productos.title}
                   width="200"
                   height="200"
+                  onClick={openModal}
                 />
               </div>
 
@@ -61,6 +67,7 @@ const manejarClick = (id, precio, urlImg) => {
       </ul>
     </div>
   );
+  
 };
 
 export default AppApi;
