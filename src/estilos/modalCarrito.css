@@ -59,6 +59,8 @@ cursor: pointer;
     animation-name: transicion;
     animation-duration: .2s;
     animation-timing-function: linear;
+
+    overflow: auto;
 }
 
 @keyframes transicion{

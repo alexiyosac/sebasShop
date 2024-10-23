@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import "../estilos/appApiStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-import AgregarItems from "./AgregarItems"
+import { UserContext }  from "../context/UserAgregar";
 
 
 
@@ -22,6 +22,12 @@ const AppApi = () => {
 
     fetchApi();
   }, []);
+
+
+const {agregarItem} = useContext(UserContext);
+const manejarClick = (id, precio, urlImg) => {
+  agregarItem(id, precio, urlImg);
+}
 
   return (
     <div className="containerP">
@@ -46,7 +52,7 @@ const AppApi = () => {
 
               <div className="price-products">
                 <p>${productos.price}</p>
-                <FontAwesomeIcon icon={faCartPlus} className="iconCard" />
+                <FontAwesomeIcon icon={faCartPlus} className="iconCard" onClick={()=> manejarClick(productos.id, productos.price, productos.image)}/>
               </div>
 
             </div>

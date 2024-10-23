@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../estilos/slider.css";
 import data from "../zapatos.json";
-// import AgregarItems from "./AgregarItems"
 import { UserContext }  from "../context/UserAgregar";
 
 const SliderProductos = () => {

@@ -25,7 +25,7 @@
 .fondo-header{
     /* outline: 1px solid red; */
     width: 60vw;
-    font-family: Poppins, sans serif;  
+    font-family: Poppins, sans-serif;  
 }
 
 .titulo-header{
@@ -39,6 +39,7 @@
 
 .promo-header{
     font-size: 1.5rem;
+
 }
 
 .obtenDesc-Header{
