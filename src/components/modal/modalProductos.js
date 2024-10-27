@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect} from "react";
 import "../../estilos/modalProductos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -8,31 +8,67 @@ const ModalProductos = () => {
   const {
     isOpen,
     setIsOpen,
-    idProduct,
-    setIdProduct,
-    array,
-    setArray,
     modalPro,
+    precioModal,
+    setPrecioModal,
+    agregarItem,
   } = useContext(UserContext);
+
+
+
+const [cantidad, setCantidad] = useState(1);
+const [valorTotal, setValorTotal] = useState(precioModal);
+
+useEffect(() => {
+  // Cada vez que `precioModal` cambie, actualizamos `valorTotal`
+  setValorTotal(precioModal);
+}, [precioModal]);
+
+
 
   const cerrarModal = () => {
     setIsOpen(false);
+    setCantidad(1);
   };
 
   const mostrarInfo = () => {
     if (modalPro && Array.isArray(modalPro)) {
       modalPro.forEach(item => {
         console.log(`ID: ${item.id}, Título: ${item.title}, Precio: ${item.price}, URL: ${item.url}, Descripción: ${item.descr}`);
+        console.log("el precio es :", precioModal );
       });
     } else {
       console.log("modalPro no es un array o está vacío");
     }
   };
 
+  const sumarCantidad = () =>{
+      setCantidad(prev => cantidad + 1);
+      setValorTotal(prev=> prev + precioModal);
+  
+  }
+
+
+  const restarCantidad =() => {
+    if(cantidad !==1){
+      setCantidad(prev => cantidad - 1);
+      setValorTotal(prev=> prev - precioModal);
+    }
+  }
+
+
+  const agregarProductos =(id, precio, urlImg, cantidad)=>{
+    agregarItem(id, precio, urlImg, cantidad);
+  }
+
+
+
   if (!isOpen) return null; //si ifOpen es falso
   return (
     <div className="modalContainerP">
+ 
       {modalPro && modalPro.map((item) => (
+       
         <div className="ventanaModal" key={item.id}>
           <div className="ventanaProducto">
             <img
@@ -50,14 +86,14 @@ const ModalProductos = () => {
             />
 
             <div className="titulosProducto">
-              <h1>{item.title || "TITULO DEL PRODUCTO"}</h1>
-              <p className="subtituloProducto">Subtitulo</p>
-              <p className="tituloPrecioProducto">${item.price || 420}</p>
+              <h1>{item.title}</h1>
+              <p className="subtituloProducto" >{item.category}</p>
+              <p className="tituloPrecioProducto">${item.price}</p>
             </div>
 
             <div className="descripcionProducto">
               <h3>DESCRIPCIÓN</h3>
-              <p>{item.descr || "Descripción del producto..."}</p>
+              <p className="descripcionCaja">{item.descr}</p>
             </div>
 
             <div className="botonsProducto">
@@ -67,18 +103,18 @@ const ModalProductos = () => {
               </div>
               <div className="botonesCantPre">
                 <div className="botonCantidad">
-                  <p className="botonesAgregarRestar">-</p>
-                  <p>4</p>
-                  <p className="botonesAgregarRestar">+</p>
+                  <p className="botonesAgregarRestar" onClick={restarCantidad}>-</p>
+                  <p>{cantidad}</p>
+                  <p className="botonesAgregarRestar" onClick={sumarCantidad}>+</p>
                 </div>
                 <div className="botonCantidad">
-                  <p>${item.price || 420}</p>
+                  <p>${valorTotal.toFixed(2)}</p>
                 </div>
               </div>
             </div>
 
             <div className="botonCarritoModal">
-              <button className="botonAgregarCart" onClick={mostrarInfo}>
+              <button className="botonAgregarCart" onClick={()=> agregarProductos(item.id, item.price,item.url, cantidad )}>
                 AGREGAR AL CARRITO
               </button>
             </div>

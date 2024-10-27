@@ -60,7 +60,7 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 
@@ -90,7 +90,8 @@
 }
 
 .descripcionProducto p{
-    font-size: 15px;
+    font-size: 12px;
+    line-height: 110%;
 }
 
 .tituloBoton{
@@ -145,5 +146,12 @@
     cursor: pointer;
     position: relative;
     top: -40px;
-    right: -180px;
+    right: -190px;
+    }
+
+    .descripcionCaja{
+        width: 325px;
+        height: 110px;
+        overflow:auto;    
+        text-align: justify;
     }
