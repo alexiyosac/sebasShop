@@ -24,13 +24,15 @@ const AppApi = () => {
   }, []);
 
 
-const {agregarItem, setIsOpen, isOpen } = useContext(UserContext);
+const {agregarItem, setIsOpen, setIdProduct, modalProducto } = useContext(UserContext);
+
 const manejarClick = (id, precio, urlImg) => {
   agregarItem(id, precio, urlImg);
 }
 
-const openModal = () =>{
+const openModal = (id, title, price, url, descr) =>{
   setIsOpen(true);
+  modalProducto(id, title, price, url, descr);
 }
 
   return (
@@ -47,7 +49,7 @@ const openModal = () =>{
                   alt={productos.title}
                   width="200"
                   height="200"
-                  onClick={openModal}
+                  onClick={()=>openModal(productos.id, productos.title, productos.price, productos.image, productos.description)}
                 />
               </div>
 

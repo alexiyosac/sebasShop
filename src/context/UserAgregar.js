@@ -7,6 +7,22 @@ const UserProvider = ({ children }) => {
   const [contador, setContador] = useState(0);
   const [array, setArray] = useState([]);
   const [isOpen, setIsOpen] =useState(false);
+  const [idProduct, setIdProduct] = useState('');
+  const [modalPro, setModalPro] = useState([]);
+
+
+  const modalProducto =(id, title, price, url, descr)=>{
+    const newArray ={
+      id: id,
+      title, title,
+      price: price,
+      url: url,
+      descr: descr,
+    }
+
+    setModalPro([newArray])
+    
+  }
 
   const agregarItem = (id, precio, urlImg) => {
     // Incrementar el contador
@@ -35,7 +51,7 @@ const UserProvider = ({ children }) => {
 
   return (
  
-    <UserContext.Provider value={{ contador, setContador, array, setArray, agregarItem, isOpen, setIsOpen }}>
+    <UserContext.Provider value={{ contador, setContador, array, setArray, agregarItem, modalProducto, isOpen, setIsOpen, idProduct, setIdProduct, modalPro, setModalPro }}>
       {children}
     </UserContext.Provider>
   );
