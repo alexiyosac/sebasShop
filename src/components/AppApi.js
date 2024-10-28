@@ -29,8 +29,8 @@ const AppApi = () => {
 const {agregarItem, setIsOpen,  modalProducto } = useContext(UserContext);
 
 const manejarClick = (id, precio, urlImg) => {
-  const cantidad = 0;
-  agregarItem(id, precio, urlImg, cantidad);
+  const cant = 0;
+  agregarItem(id, precio, urlImg, cant);
 }
 
 const openModal = (id, title, price, url, descr, category) =>{

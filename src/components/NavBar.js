@@ -7,10 +7,12 @@ import { faMagnifyingGlass, faCartShopping } from "@fortawesome/free-solid-svg-i
 import { UserContext }  from "../context/UserAgregar";
 
 
-const NavBar = ({openModal}) => {
+const NavBar = ( ) => {
 
-
-  const { contador } = useContext(UserContext);
+   const { contador, setIsOpenCarrito } = useContext(UserContext);
+   const openModal = () =>{
+    setIsOpenCarrito(true);
+  }
 
     return (
     <div className="containerPrincipal">

@@ -10,7 +10,6 @@ const ModalProductos = () => {
     setIsOpen,
     modalPro,
     precioModal,
-    setPrecioModal,
     agregarItem,
   } = useContext(UserContext);
 
@@ -22,25 +21,17 @@ const [valorTotal, setValorTotal] = useState(precioModal);
 useEffect(() => {
   // Cada vez que `precioModal` cambie, actualizamos `valorTotal`
   setValorTotal(precioModal);
-}, [precioModal]);
+}, [precioModal, isOpen]);
 
 
 
   const cerrarModal = () => {
     setIsOpen(false);
     setCantidad(1);
+    console.log("EL PRECIO del modal es :", valorTotal)
   };
 
-  const mostrarInfo = () => {
-    if (modalPro && Array.isArray(modalPro)) {
-      modalPro.forEach(item => {
-        console.log(`ID: ${item.id}, Título: ${item.title}, Precio: ${item.price}, URL: ${item.url}, Descripción: ${item.descr}`);
-        console.log("el precio es :", precioModal );
-      });
-    } else {
-      console.log("modalPro no es un array o está vacío");
-    }
-  };
+
 
   const sumarCantidad = () =>{
       setCantidad(prev => cantidad + 1);
@@ -114,7 +105,7 @@ useEffect(() => {
             </div>
 
             <div className="botonCarritoModal">
-              <button className="botonAgregarCart" onClick={()=> agregarProductos(item.id, item.price,item.url, cantidad )}>
+              <button className="botonAgregarCart" onClick={()=> agregarProductos(item.id, item.price,item.url, cantidad)}>
                 AGREGAR AL CARRITO
               </button>
             </div>

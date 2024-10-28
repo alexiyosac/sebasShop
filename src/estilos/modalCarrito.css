@@ -15,6 +15,14 @@
     z-index: 1;
 }
 
+.active{
+    visibility: visible;
+}
+
+.no-active{
+    visibility: hidden;
+    transition: 0.4s;
+}
 
 .containerTitulo{
 
@@ -46,31 +54,62 @@ cursor: pointer;
 
 }
 
+
+
 .modalContainer{
     width:25%;
-    height: 100vh;
+    height: 99vh;
     background-color: white;
     position: absolute;
     right: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    animation-name: transicion;
-    animation-duration: .2s;
-    animation-timing-function: linear;
-
     overflow: auto;
+   
+ 
+
+
+}
+
+.slide-in{
+   
+    animation-name: transicion;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
 @keyframes transicion{
     from{
-        transform: translatex(100%);
+        opacity: 0;
+        transform: translatex(50%);
     }
     to{
+        opacity: 1;
         transform: translatex(0%);
     }
 }
+
+.slide-out{
+   
+    animation-name: transicion2;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes transicion2{
+    from{
+        opacity: 1;
+        transform: translatex(0%);
+    }
+    to{
+        opacity: 0;
+        transform: translatex(50%);
+    }
+}
+
 
 
 

@@ -7,7 +7,7 @@ const UserProvider = ({ children }) => {
   const [contador, setContador] = useState(0);
   const [array, setArray] = useState([]);
   const [isOpen, setIsOpen] =useState(false);
-  // const [idProduct, setIdProduct] = useState('');
+  const [isOpencarrito, setIsOpenCarrito] = useState(false);
   const [modalPro, setModalPro] = useState([]);
   const [precioModal, setPrecioModal] =useState(0);
 
@@ -30,8 +30,12 @@ const UserProvider = ({ children }) => {
   }
 
   const agregarItem = (id, precio, urlImg, cantidadV) => {
+    
+
     // Incrementar el contador
-    setContador((prev) => prev + 1);
+     cantidadV > 1 ? setContador((prev) => prev + cantidadV) : setContador((prev) => prev + 1)
+    console.log("la cantidad del usecontext es :", cantidadV)
+    console.log("El contador es :", contador);
 
     // Actualizar el array de items
     setArray((prevItems) => {
@@ -49,21 +53,32 @@ const UserProvider = ({ children }) => {
           );
         }
     } else {
-      // Si el item no existe, agregarlo al array
-      const nuevoItem = {
-        id: id,
-        cantidad: 1, // Si cantidad es 0, inicializa en 1
-        valor: precio,
-        url: urlImg,
-      };
-      return [...prevItems, nuevoItem];
+      if(cantidadV > 0){
+        const nuevoItem = {
+          id: id,
+          cantidad: cantidadV,
+          valor: precio,
+          url: urlImg,
+        };
+        return [...prevItems, nuevoItem];
+      }
+      else{
+              // Si el item no existe, agregarlo al array
+              const nuevoItem = {
+                id: id,
+                cantidad: 1, // Si cantidad es 0, inicializa en 1
+                valor: precio,
+                url: urlImg,
+              };
+              return [...prevItems, nuevoItem];
+            }
       }
     });
   };
 
   return (
  
-    <UserContext.Provider value={{ contador, setContador, array, setArray, agregarItem, modalProducto, isOpen, setIsOpen, precioModal, setPrecioModal, modalPro, setModalPro }}>
+    <UserContext.Provider value={{ contador, setContador, array, setArray, agregarItem, modalProducto, isOpen, setIsOpen, isOpencarrito, setIsOpenCarrito, precioModal, setPrecioModal, modalPro, setModalPro }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,14 +1,15 @@
-import { React, useContext } from "react";
+import { React, useContext, useState } from "react";
 import "../../estilos/modalCarrito.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-// import { UserContext } from "../../context/UserProvider";
 import { UserContext } from "../../context/UserAgregar";
 
 
-const ModalCarrito = ({ open, openModal }) => {
-  const { contador, setContador, array, setArray } = useContext(UserContext);
-  if (!open) return null;
+const ModalCarrito = ( ) => {
+  const { contador, setContador, array, setArray, isOpencarrito, setIsOpenCarrito } = useContext(UserContext);
+
+  const [valorToProductos, setValorToProductos] = useState(0);
+  
 
 const handlerRemover = (id, cantidad) =>{
   const newArray = array.filter((array) => array.id !== id)
@@ -16,17 +17,37 @@ const handlerRemover = (id, cantidad) =>{
   setContador(contador - cantidad)
 }
 
+const cerrarCarrito = () =>{
+  setIsOpenCarrito(false);
+}
 
-  return (
-    <div className="modalCarrito">
-      <div className="modalContainer">
+
+const valorT = () =>{
+  array.length === 0 ? (
+    <div className="carVacio">No hay productos en el carrito</div>
+  ) : (
+    array.map((array) => (   
+      setValorToProductos(((prev => (prev + (array.cantidad * array.valor))))) 
+
+    ))
+
+  )
+
+}
+// if (!isOpencarrito) return null;
+
+return (
+  
+    // <div className="modalCarrito">
+      <div className={`modalCarrito ${ isOpencarrito ? "active" : "no-active"}`}>
+      <div className={`modalContainer ${ isOpencarrito ? "slide-in" : "slide-out"}`}>
         <div className="listaCarrito">
           <div className="containerTitulo">
             <h3 className="tituloCarrito">PRODUCTOS</h3>
             <FontAwesomeIcon
               icon={faXmark}
               className="closeMo"
-              onClick={openModal}
+              onClick={cerrarCarrito}
             />
           </div>
           <div>
@@ -49,12 +70,12 @@ const handlerRemover = (id, cantidad) =>{
           </div>
 
           <div className="totalCarrito">
-            <h2>Total $20</h2>
+            <h2>{valorToProductos}</h2>
           </div>
         </div>
 
         <div className="vaciarCarrito">
-          <h4>VACIAR CARRITO</h4>
+          <h4 onClick={valorT}>{valorToProductos}</h4>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React from "react";
 import "./App.css";
 import AppApi from "./components/AppApi";
 import NavBar from "./components/NavBar";
@@ -11,13 +12,13 @@ import UserContext from "./context/UserAgregar"
 
 
 function App() {
-  const [openModalCar, setOpenModalCar] = useState(false);
+
 
   return (
     <UserContext> 
       <ModalProductos />
-      <ModalCarrito open={openModalCar} openModal={()=> setOpenModalCar(!openModalCar)}/>
-      <NavBar openModal={()=> setOpenModalCar(true)}/>
+      <ModalCarrito />
+      <NavBar />
       <Header />
       <SliderProductos />
       <AppApi />
