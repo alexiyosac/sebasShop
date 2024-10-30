@@ -94,7 +94,7 @@ cursor: pointer;
 .slide-out{
    
     animation-name: transicion2;
-    animation-duration: 0.4s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
@@ -106,7 +106,7 @@ cursor: pointer;
     }
     to{
         opacity: 0;
-        transform: translatex(50%);
+        transform: translatex(100%);
     }
 }
 
@@ -156,19 +156,4 @@ cursor: pointer;
 .carVacio{
     text-align: center;
 }
-/* .modalContainerClose{
-
-    animation-name: transicionClose;
-    animation-duration: .2s;
-    animation-timing-function: linear;
-}
-
-@keyframes transicionClose{
-    from{
-        transform: translatex(0%);
-    }
-    to{
-        transform: translatex(100%);
-    }
-} */
 
